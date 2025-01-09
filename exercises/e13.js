@@ -9,7 +9,23 @@
 // Phil's Account Object
 // ]
 
-export function getAllAccountsWithSumsOfDepositsLess2000(array) {}
+import { bankAccounts } from "../data/data";
+
+export function getAllAccountsWithSumsOfDepositsLess2000(array) {
+  
+ 
+  return array.filter(bankAccounts => {
+    if (bankAccounts.deposits){
+      return bankAccounts.deposits.reduce((acc, deposits) => acc + deposits, 0 )< 2000;
+    }
+    return true;
+  });
+}
+  
+
+
+
+
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-13"

@@ -5,13 +5,20 @@
 
 export function findMinValueInArray(array) {
   // Your code goes here...
+  let min = Math.min(...array);
+ 
+  return min;
 }
 
 export function findMaxValueInArray(array) {
   // Your code goes here...
+ 
+  let max = Math.max(...array);
+   return max;
+  
+
 }
 
-// === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-4"
 // If the test has all tests passed, switch to the next exercise file
 // If any of the tests fails, refactor the code and run the test command after you've fixed the function

@@ -10,8 +10,16 @@
 
 export function getAverage(array) {
   // Your code goes here...
+let sum = 0;
+array.forEach( Element => {
+   sum += Element;
+}
+);
+let average = sum/array.length;
+return average;
 
 }
+
 
 
 /** 
@@ -23,7 +31,13 @@ export function getAverage(array) {
 
 export function getStringSum(str) {
   // Your code goes here...
-
+  let sum = 0;
+  str.split('').forEach( Element => {
+    if(!isNaN(Element)){
+      sum += Number(Element)
+    }
+  })
+  return sum;
 }
 
 

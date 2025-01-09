@@ -3,8 +3,22 @@
 // Array example: bankAccounts in /data/data.js
 // getClientsWithLetterInName(bankAccounts, 'e') => ['Kevin', 'Steven', ...]
 
+import { bankAccounts } from "../data/data";
+
 export function getClientsWithLetterInName(array, letter) {
   // Your code goes here...
+ 
+  letter = letter.toLowerCase();
+
+const filteredNames = array
+    .filter(account => account.name.toLowerCase().includes(letter))
+    .map(account => account.name); 
+
+  return filteredNames;
+
+
+//
+
 
 }
 

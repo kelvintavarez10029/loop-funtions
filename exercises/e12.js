@@ -4,10 +4,24 @@
 // Array example: bankAccounts in /data/data.js
 // getAllDepositsGreaterThanOneHundred(bankAccounts) => [3432, 43242.34, 23432]
 
+import { bankAccounts } from "../data/data";
+
 export function getAllDepositsGreaterThanOneHundred(array) {
   // Your code goes here...
 
+  let deposits = [];
+
+  array.forEach(bankAccount => {
+    if (bankAccount.deposits) {
+      
+      const filteredDeposits = bankAccount.deposits.filter(deposit => deposit > 100);
+      deposits = deposits.concat(filteredDeposits);
+    }
+  });
+
+  return deposits; 
 }
+
 
 
 
