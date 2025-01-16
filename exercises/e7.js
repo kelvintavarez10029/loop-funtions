@@ -8,16 +8,23 @@ import { bankAccounts } from "../data/data";
 
 export function getClientWithLeastPositiveBalance(array) {
   // Your code goes here...
+  let leastBalanceAccount = null;
 
-  const postiveBalances = array.filter(bankAccounts => bankAccounts.balance > 0);
-        if(postiveBalances.length === 0){
-          return [];
-        }
-      const leastBalanceAccount = postiveBalances.reduce(( minAccount, currentAccount)  => {
-        return minAccount.balance < currentAccount.balance  ? currentAccount : minAccount;}
-      );
-      return [leastBalanceAccount] ;
+  // Loop through the array to find the account with the smallest positive balance
+  for (let i = 0; i < array.length; i++) {
+    const account = array[i];
+
+    if (account.balance > 0) {
+     if (leastBalanceAccount === null || account.balance < leastBalanceAccount.balance) {
+        leastBalanceAccount = account;
+      }
+    }
+  }
+
+  return leastBalanceAccount ? [leastBalanceAccount] : [];
 }
+
+
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-7"

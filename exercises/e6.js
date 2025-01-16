@@ -7,8 +7,14 @@ import { bankAccounts } from "../data/data";
 
 export function getClientWithNoMoney(array) {
   // Your code goes here...
- array = array.filter(bankAccounts => bankAccounts.balance === 0);
-  return array.map(bankAccounts => bankAccounts.name); 
+const results = [];
+
+for( let i = 0; i < array.length; i++){
+  if(array[i].balance === 0){
+    results.push(array[i].name);
+  }
+}
+return results;
 }
 
 

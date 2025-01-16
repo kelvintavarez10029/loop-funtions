@@ -8,9 +8,19 @@ import { bankAccounts } from "../data/data";
 
 export function getClientWithGreatestBalance(array) {
   // Your code goes here...
-  array = array.filter(bankAccounts => bankAccounts.balance > 0);
- return array.sort( (a,b) => b.balance - a.balance).slice(0,1);
+  let greatestBalanceAccount = null;
+
+  for (let i = 0; i < array.length; i++) {
+    const account = array[i];
+
+    if (greatestBalanceAccount === null || account.balance > greatestBalanceAccount.balance) {
+      greatestBalanceAccount = account;
+    }
+  }
+  return greatestBalanceAccount ? [greatestBalanceAccount] : [];
 }
+  
+
 
 
 

@@ -9,16 +9,33 @@ import { bankAccounts } from "../data/data";
 
 export function getClientsWithWrongBalance(array) {
   // Your code goes here...
-  return array.filter(account => {
-    const depositSum = account.deposits
-      ? account.deposits.reduce((acc, deposit) => acc + deposit, 0)
-      : 0;
-    const withdrawalSum = account.withdrawals
-      ? account.withdrawals.reduce((acc, withdrawal) => acc + withdrawal, 0)
-      : 0;
+  const result = [];
+  for (let i = 0; i < array.length; i++) {
+    const account = array[i];
+
+    // Calculate depositSum
+    let depositSum = 0;
+    if (account.deposits) {
+      for (let j = 0; j < account.deposits.length; j++) {
+        depositSum += account.deposits[j];
+      }
+    }
+
+    let withdrawalSum = 0;
+    if (account.withdrawals) {
+      for (let k = 0; k < account.withdrawals.length; k++) {
+        withdrawalSum += account.withdrawals[k];
+      }
+    }
+
     const correctBalance = depositSum - withdrawalSum;
-    return correctBalance !== account.balance;
-  });
+
+    if (correctBalance !== account.balance) {
+      result.push(account); // Add the account to the result array
+    }
+  }
+
+  return result;
 }
 
 

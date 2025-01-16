@@ -9,18 +9,25 @@ import { bankAccounts } from "../data/data";
 export function getAllDepositsGreaterThanOneHundred(array) {
   // Your code goes here...
 
-  let deposits = [];
+  const deposits = [];
 
-  array.forEach(bankAccount => {
+  for (let i = 0; i < array.length; i++) {
+    const bankAccount = array[i];
+
     if (bankAccount.deposits) {
-      
-      const filteredDeposits = bankAccount.deposits.filter(deposit => deposit > 100);
-      deposits = deposits.concat(filteredDeposits);
-    }
-  });
+      for (let j = 0; j < bankAccount.deposits.length; j++) {
+        const deposit = bankAccount.deposits[j];
 
-  return deposits; 
+        if (deposit > 100) {
+          deposits.push(deposit); // Add the deposit to the deposits array
+        }
+      }
+    }
+  }
+
+  return deposits;
 }
+
 
 
 

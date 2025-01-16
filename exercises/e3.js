@@ -11,13 +11,11 @@
 export function getAverage(array) {
   // Your code goes here...
 let sum = 0;
-array.forEach( Element => {
-   sum += Element;
-}
-);
-let average = sum/array.length;
-return average;
 
+for(let i = 0; i < array.length; i++){
+  sum += array[i];
+}
+return sum / array.length;
 }
 
 

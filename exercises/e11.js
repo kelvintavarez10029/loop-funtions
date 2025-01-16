@@ -9,17 +9,22 @@ import { bankAccounts } from "../data/data";
 export function getAllWithdrawals(array) {
   // Your code goes here...
 
-  const withdrawalSums = array.map(bankAccounts => {
-    if (bankAccounts.withdrawals === undefined) {
-      return 0;
-    } else {
-      return bankAccounts.withdrawals.reduce((acc, curr) => {
-        return acc + curr
-      }, 0);
-    }
-});
+  const withdrawalSums = [];
 
-  return withdrawalSums; 
+  for (let i = 0; i < array.length; i++) {
+    const account = array[i];
+    let sum = 0;
+
+    if (account.withdrawals !== undefined) {
+      for (let j = 0; j < account.withdrawals.length; j++) {
+        sum += account.withdrawals[j];
+      }
+    }
+
+    withdrawalSums.push(sum);
+  }
+
+  return withdrawalSums;
 }
 
 

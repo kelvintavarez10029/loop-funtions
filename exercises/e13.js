@@ -14,12 +14,26 @@ import { bankAccounts } from "../data/data";
 export function getAllAccountsWithSumsOfDepositsLess2000(array) {
   
  
-  return array.filter(bankAccounts => {
-    if (bankAccounts.deposits){
-      return bankAccounts.deposits.reduce((acc, deposits) => acc + deposits, 0 )< 2000;
+  const result = [];
+
+  for (let i = 0; i < array.length; i++) {
+    const bankAccount = array[i];
+
+    if (bankAccount.deposits) {
+      let totalDeposits = 0;
+      for (let j = 0; j < bankAccount.deposits.length; j++) {
+        totalDeposits += bankAccount.deposits[j];
+      }
+
+      if (totalDeposits < 2000) {
+        result.push(bankAccount);
+      }
+    } else {
+      result.push(bankAccount);
     }
-    return true;
-  });
+  }
+
+  return result;
 }
   
 

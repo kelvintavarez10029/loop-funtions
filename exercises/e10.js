@@ -10,16 +10,16 @@ export function getClientsWithLetterInName(array, letter) {
  
   letter = letter.toLowerCase();
 
-const filteredNames = array
-    .filter(account => account.name.toLowerCase().includes(letter))
-    .map(account => account.name); 
+  const result = [];
 
-  return filteredNames;
+  for (let i = 0; i < array.length; i++) {
+    const account = array[i];
 
-
-//
-
-
+    if (account.name.toLowerCase().includes(letter)) {
+      result.push(account.name); // Add the name to the result array
+    }
+  }
+  return result;
 }
 
 // === TEST YOURSELF ===
