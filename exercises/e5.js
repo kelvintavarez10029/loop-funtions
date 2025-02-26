@@ -8,8 +8,13 @@ import { bankAccounts } from "../data/data";
 
 export function getAllClientNames(array) {
   // Your code goes here...
-array = array.map(bankAccounts => bankAccounts.name);
-return array;
+
+  let names = [ ];
+  for (let i = 0; i < array.length; i++) {
+    names.push(array[i].name);
+  }
+  return names;
+
 
 }
 

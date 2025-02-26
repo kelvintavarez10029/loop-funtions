@@ -30,11 +30,13 @@ return sum / array.length;
 export function getStringSum(str) {
   // Your code goes here...
   let sum = 0;
-  str.split('').forEach( Element => {
-    if(!isNaN(Element)){
-      sum += Number(Element)
+
+  for (let i = 0; i < str.length; i++) {
+    if (!isNaN(str[i]) && str[i] !== ' ') {
+      sum += parseInt(str[i]); 
     }
-  })
+  }
+
   return sum;
 }
 

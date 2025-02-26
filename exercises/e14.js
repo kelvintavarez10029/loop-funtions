@@ -31,7 +31,7 @@ export function getClientsWithWrongBalance(array) {
     const correctBalance = depositSum - withdrawalSum;
 
     if (correctBalance !== account.balance) {
-      result.push(account); // Add the account to the result array
+      result.push(account); 
     }
   }
 

@@ -10,7 +10,6 @@ export function getClientWithLeastPositiveBalance(array) {
   // Your code goes here...
   let leastBalanceAccount = null;
 
-  // Loop through the array to find the account with the smallest positive balance
   for (let i = 0; i < array.length; i++) {
     const account = array[i];
 

@@ -19,7 +19,7 @@ export function getAllDepositsGreaterThanOneHundred(array) {
         const deposit = bankAccount.deposits[j];
 
         if (deposit > 100) {
-          deposits.push(deposit); // Add the deposit to the deposits array
+          deposits.push(deposit); 
         }
       }
     }
